@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Sleep Music Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <canvas id="visualizer"></canvas>
+
+    <div class="app-container">
+        <header>
+            <h1>Deep Sleep Music Generator</h1>
+            <p>Generate fully controllable frequencies with professional features</p>
+        </header>
+
+        <main>
+            <div class="preset-section">
+                <div class="control-header">
+                    <label for="presetSelect">Therapeutic Preset</label>
+                </div>
+                <select id="presetSelect" class="select-input select-large"></select>
+                <div id="presetInfo" class="preset-info-panel">
+                    <p id="presetDescription">Manually control all parameters using the sliders below.</p>
+                </div>
+            </div>
+
+            <div class="controls-section">
+
+                <div class="control-group">
+                    <div class="control-header">
+                        <label for="playBtn">Playback</label>
+                    </div>
+                    <button id="playBtn" class="play-btn">Start Generator</button>
+                </div>
+
+                <div class="control-group">
+                    <div class="control-header">
+                        <label for="masterVolume">Master Volume</label>
+                        <span id="masterVolumeValue" class="value-display">50%</span>
+                    </div>
+                    <input type="range" id="masterVolume" min="0" max="100" value="50">
+                </div>
+
+                <div class="control-group">
+                    <div class="control-header">
+                        <label for="baseFreq">Base Frequency (Hz)</label>
+                        <span id="baseFreqValue" class="value-display">174 Hz</span>
+                    </div>
+                    <input type="range" id="baseFreq" min="1" max="50000" value="174" step="1">
+                    <p class="helper-text">Solfeggio or High-Frequency Tones (up to 50kHz)</p>
+                </div>
+
+                <div class="control-group">
+                    <div class="control-header">
+                        <label for="binauralBeat">Binaural Beat (Delta/Theta)</label>
+                        <span id="binauralBeatValue" class="value-display">2.0 Hz</span>
+                    </div>
+                    <input type="range" id="binauralBeat" min="0.5" max="8.0" value="2.0" step="0.1">
+                    <p class="helper-text">Target brainwave state. Requires headphones.</p>
+                </div>
+
+                <div class="control-group">
+                    <div class="control-header">
+                        <label for="warmth">Warmth (Filter)</label>
+                        <span id="warmthValue" class="value-display">800 Hz</span>
+                    </div>
+                    <input type="range" id="warmth" min="100" max="3000" value="800" step="10">
+                    <p class="helper-text">Lower values sound more muffled and deep.</p>
+                </div>
+
+                <div class="control-group">
+                    <div class="control-header">
+                        <label for="breathRate">Breath Tremolo (LFO)</label>
+                        <span id="breathRateValue" class="value-display">0.10 Hz</span>
+                    </div>
+                    <input type="range" id="breathRate" min="0" max="1" value="0.1" step="0.01">
+                    <p class="helper-text">Matches deep breathing (0.1Hz = 6 breaths/min).</p>
+                </div>
+
+                <div class="control-group">
+                    <div class="control-header">
+                        <label for="echoAmount">Reverb Space</label>
+                        <span id="echoAmountValue" class="value-display">30%</span>
+                    </div>
+                    <input type="range" id="echoAmount" min="0" max="100" value="30">
+                </div>
+
+                <div class="control-group">
+                    <div class="control-header">
+                        <label for="noiseType">Background Noise</label>
+                    </div>
+                    <select id="noiseType" class="select-input">
+                        <option value="none">None</option>
+                        <option value="pink">Pink Noise (Rain/Waterfall)</option>
+                        <option value="brown" selected>Brown Noise (Deep Ocean/Thunder)</option>
+                    </select>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/presets.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/visualizer.js"></script>
+</body>
+
+</html>
